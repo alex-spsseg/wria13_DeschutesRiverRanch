@@ -10,7 +10,26 @@
   "label_1": "IMG_20261014_115446_00_094 (2026/10/14)",
   "label_2": "",
   "autorotate": false,
-  "hotspots_1": [],
+  "hotspots_1": [
+    {
+      "yaw": 3.0237661237615185,
+      "pitch": 0.728857845537231,
+      "title": "WSE = 410.5ft",
+      "text": "Deschutes Confluence RTK GNSS Elevation (NAVD88 Height)",
+      "link": "",
+      "category": "note",
+      "pin_style": "label_hover"
+    },
+    {
+      "yaw": -1.1422675537352713,
+      "pitch": 0.7096068589280726,
+      "title": "WSE = 414.1ft",
+      "text": "Deschutes Confluence RTK GNSS Elevation (NAVD88 Height)",
+      "link": "",
+      "category": "note",
+      "pin_style": "label_hover"
+    }
+  ],
   "hotspots_2": [],
   "levels_1": [],
   "levels_2": [],

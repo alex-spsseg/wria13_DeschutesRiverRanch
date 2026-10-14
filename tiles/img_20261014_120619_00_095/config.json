@@ -10,7 +10,18 @@
   "label_1": "IMG_20261014_120619_00_095 (2026/10/14)",
   "label_2": "",
   "autorotate": false,
-  "hotspots_1": [],
+  "hotspots_1": [
+    {
+      "yaw": 1.2675628123108638,
+      "pitch": 0.770529208427785,
+      "title": "WSE = 414.3ft",
+      "text": "Lower Pond RTK GNSS Elevation (NAVD88 Height)",
+      "link": "",
+      "category": "note",
+      "pin_style": "label_hover",
+      "images": []
+    }
+  ],
   "hotspots_2": [],
   "levels_1": [],
   "levels_2": [],

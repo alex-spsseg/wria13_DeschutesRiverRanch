@@ -10,7 +10,17 @@
   "label_1": "IMG_20261014_121754_00_096 (2026/10/14)",
   "label_2": "",
   "autorotate": false,
-  "hotspots_1": [],
+  "hotspots_1": [
+    {
+      "yaw": 2.744499701704548,
+      "pitch": 0.7006143677939018,
+      "title": "WSE = 416.7ft",
+      "text": "Spring Creek RTK GNSS Elevation (NAVD88 Height)",
+      "link": "",
+      "category": "note",
+      "pin_style": "label_hover"
+    }
+  ],
   "hotspots_2": [],
   "levels_1": [],
   "levels_2": [],

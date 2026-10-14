@@ -10,7 +10,27 @@
   "label_1": "IMG_20261014_112047_00_093 (2026/10/14)",
   "label_2": "",
   "autorotate": false,
-  "hotspots_1": [],
+  "hotspots_1": [
+    {
+      "yaw": -1.2807450766447737,
+      "pitch": 0.5347905239429807,
+      "title": "WSE= 418.0ft",
+      "text": "Upper Beaver Pond RTK GNSS Elevation (NAVD88 Height)",
+      "link": "",
+      "category": "note",
+      "pin_style": "label_hover"
+    },
+    {
+      "yaw": 1.5340575329306096,
+      "pitch": 0.34667531515089145,
+      "title": "WSE = 415.6ft",
+      "text": "Upper Beaver Dam Outfall RTK GNSS Elevation (NAVD88 Height)",
+      "link": "",
+      "category": "note",
+      "pin_style": "label_hover",
+      "images": []
+    }
+  ],
   "hotspots_2": [],
   "levels_1": [],
   "levels_2": [],

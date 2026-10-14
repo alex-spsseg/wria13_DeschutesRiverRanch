@@ -2,8 +2,8 @@
 
 # WRIA 13 — Des Chutes River Ranch
 
+Live site: [All tours](https://alex-spsseg.github.io/wria13_DeschutesRiverRanch/tours.html)
+
 ## Tours
 
-- Site Visit (24.3cfs) (visited 2026-10-14, 6 stops)
-
-Links need a GitHub origin on this repo; publish again once it is set up.
+- [Site Visit (24.3cfs)](https://alex-spsseg.github.io/wria13_DeschutesRiverRanch/index.html?tour=20261014) (visited 2026-10-14, 6 stops)

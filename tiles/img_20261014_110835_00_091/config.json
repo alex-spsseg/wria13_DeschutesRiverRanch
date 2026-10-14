@@ -10,7 +10,18 @@
   "label_1": "IMG_20261014_110835_00_091 (2026/10/14)",
   "label_2": "",
   "autorotate": false,
-  "hotspots_1": [],
+  "hotspots_1": [
+    {
+      "yaw": 0.9998123013079638,
+      "pitch": 0.4550837550111897,
+      "title": "WSE = 415.4ft",
+      "text": "BDA Pond RTK GNSS Elevation (NAVD88 Height)",
+      "link": "",
+      "category": "note",
+      "pin_style": "label_hover",
+      "images": []
+    }
+  ],
   "hotspots_2": [],
   "levels_1": [],
   "levels_2": [],

@@ -47,5 +47,7 @@
       "popup": true
     }
   ],
-  "heading_confirmed": true
+  "heading_confirmed": true,
+  "alt_checked": true,
+  "alt": 106.09
 }

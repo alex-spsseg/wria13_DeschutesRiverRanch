@@ -516,8 +516,8 @@
     .hotspot-pin.hotspot-cat-measurement::after { content: 'M'; font-size: 12px; }
     .hotspot-pin.hotspot-cat-link::after {
       content: ''; width: 100%; height: 100%; font-size: 0;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 17L17 7M9 7h8v8'/%3E%3C/svg%3E");
-      background-size: 58%; background-repeat: no-repeat; background-position: center;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M13.5 5.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM9.8 8.9L7 23h2.1l1.8-8 2.1 2v6h2v-7.5l-2.1-2 .6-3C14.8 12 16.8 13 19 13v-2c-1.9 0-3.5-1-4.3-2.4l-1-1.6c-.4-.6-1-1-1.7-1-.3 0-.5.1-.8.1L6 8.3V13h2V9.6l1.8-.7'/%3E%3C/svg%3E");
+      background-size: 76%; background-repeat: no-repeat; background-position: center;
     }
     /* Overridden per-pin below when spot.link_icon === 'aerial' (see
     the Icon field in the hotspot form) -- ground stays the plain
@@ -800,7 +800,7 @@
 </head>
 <body>
 
-  <div id="build-timestamp">Built 2026-10-21 10:04:38</div>
+  <div id="build-timestamp">Built 2026-10-21 10:13:48</div>
 
   <div id="status-banner"></div>
 
@@ -1777,7 +1777,7 @@
             title: 'What the pins mean',
             icon: STEP_ICONS.look,
             stage: '<div class="hp-chips">' +
-              '<span class="hp-chip"><span class="hp-legend-dot"><svg class="hp-ico-stroke" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span>Ground</span>' +
+              '<span class="hp-chip"><span class="hp-legend-dot"><svg viewBox="0 0 24 24"><path d="M13.5 5.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM9.8 8.9L7 23h2.1l1.8-8 2.1 2v6h2v-7.5l-2.1-2 .6-3C14.8 12 16.8 13 19 13v-2c-1.9 0-3.5-1-4.3-2.4l-1-1.6c-.4-.6-1-1-1.7-1-.3 0-.5.1-.8.1L6 8.3V13h2V9.6l1.8-.7"/></svg></span>Ground</span>' +
               '<span class="hp-chip"><span class="hp-legend-dot"><svg viewBox="0 0 24 24"><path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg></span>Aerial</span>' +
               '<span class="hp-chip"><span class="hp-legend-dot"><svg viewBox="0 0 24 24"><path d="M12 3L2 12h3v8h5v-6h4v6h5v-8h3L12 3z"/></svg></span>Overview</span>' +
               '</div>',
@@ -2690,6 +2690,8 @@
       return '<svg width="' + px + '" height="' + px + '" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" ' +
              'aria-label="' + aria + '"><path d="' + path + '" fill="currentColor"/></svg>';
     }
+    // Material "directions walk", marking ground (on foot) stops on the map pins.
+    var WALK_PATH = 'M13.5 5.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM9.8 8.9L7 23h2.1l1.8-8 2.1 2v6h2v-7.5l-2.1-2 .6-3C14.8 12 16.8 13 19 13v-2c-1.9 0-3.5-1-4.3-2.4l-1-1.6c-.4-.6-1-1-1.7-1-.3 0-.5.1-.8.1L6 8.3V13h2V9.6l1.8-.7';
     // Material "home", marking overview stops in the stop list and on the map.
     var HOME_PATH = 'M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z';
     function isOverviewSite(sid) {
@@ -2716,7 +2718,7 @@
                 ? '<path transform="translate(5.5 5.5) scale(0.55)" d="' + HOME_PATH + '" fill="#fff"/>'
                 : aerial
                 ? '<path transform="translate(5.5 5.5) scale(0.55)" d="' + AIRPLANE_PATH + '" fill="#fff"/>'
-                : '<circle cx="12" cy="12" r="4.5" fill="#fff"/>') + '</svg>',
+                : '<path transform="translate(4.6 4.4) scale(0.64)" d="' + WALK_PATH + '" fill="#fff"/>') + '</svg>',
         iconSize: [size, Math.round(size * 1.33)],
         iconAnchor: [size / 2, Math.round(size * 1.33)],
         popupAnchor: [0, -Math.round(size * 1.1)],

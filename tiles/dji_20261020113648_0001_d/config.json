@@ -1,0 +1,166 @@
+{
+  "mode": "single",
+  "format": "raw",
+  "yaw_1": 0.0,
+  "pitch_1": 0.0,
+  "yaw_2": 0.0,
+  "pitch_2": 0.0,
+  "lat": 46.845568444444446,
+  "lng": -122.5969833611111,
+  "label_1": "DJI_20261020113648_0001_D (2026/10/20)",
+  "label_2": "",
+  "autorotate": false,
+  "hotspots_1": [
+    {
+      "yaw": 0.5319042959287589,
+      "pitch": -0.5592504783139273,
+      "title": "Overview 1",
+      "text": "",
+      "link": "",
+      "category": "link",
+      "pin_style": "label_hover",
+      "target": "dji_20261020132304_0003_d",
+      "link_icon": "overview"
+    },
+    {
+      "yaw": 1.0858970428648822,
+      "pitch": -0.13453701565471793,
+      "title": "Overview 2",
+      "text": "",
+      "link": "",
+      "category": "link",
+      "pin_style": "label_hover",
+      "target": "dji_20261020132122_0001_d",
+      "link_icon": "overview"
+    },
+    {
+      "yaw": 0.83124108647681,
+      "pitch": 1.5138799716049283,
+      "title": "Deschutes Confluence",
+      "text": "",
+      "link": "",
+      "category": "link",
+      "pin_style": "label_hover",
+      "target": "img_20261014_115446_00_094",
+      "link_icon": "ground"
+    },
+    {
+      "yaw": 0.5343157431393998,
+      "pitch": 0.17976682835345295,
+      "title": "Lower Pond",
+      "text": "",
+      "link": "",
+      "category": "link",
+      "pin_style": "label_hover",
+      "target": "img_20261014_120619_00_095",
+      "link_icon": "ground"
+    },
+    {
+      "yaw": 0.19944140990526904,
+      "pitch": 0.15494590407419473,
+      "title": "Spring Creek Site (Now Flooded!)",
+      "text": "",
+      "link": "",
+      "category": "link",
+      "pin_style": "label_hover",
+      "target": "img_20261014_121754_00_096",
+      "link_icon": "ground"
+    },
+    {
+      "yaw": 0.30352048354874106,
+      "pitch": 0.14691309075591924,
+      "title": "New Beaver Dam on Spring Creek",
+      "text": "",
+      "link": "",
+      "category": "link",
+      "pin_style": "label_hover",
+      "target": "img_20261014_123725_00_097",
+      "link_icon": "ground"
+    },
+    {
+      "yaw": 0.2914519418301833,
+      "pitch": 0.06742292915155232,
+      "title": "Drone Stop 2",
+      "text": "",
+      "link": "",
+      "category": "link",
+      "pin_style": "label_hover",
+      "target": "dji_20261020113814_0002_d",
+      "link_icon": "aerial"
+    },
+    {
+      "yaw": 0.025280306340230846,
+      "pitch": 0.03959429697205635,
+      "title": "Drone Stop 3",
+      "text": "",
+      "link": "",
+      "category": "link",
+      "pin_style": "label_hover",
+      "target": "dji_20261020113924_0003_d",
+      "link_icon": "aerial"
+    },
+    {
+      "yaw": 0.5117730898214456,
+      "pitch": 0.04832185153870793,
+      "title": "Drone Stop 4",
+      "text": "",
+      "link": "",
+      "category": "link",
+      "pin_style": "label_hover",
+      "target": "dji_20261020114054_0004_d",
+      "link_icon": "aerial"
+    },
+    {
+      "yaw": 1.69730155317086,
+      "pitch": 0.07142779530608402,
+      "title": "Drone Stop 11",
+      "text": "",
+      "link": "",
+      "category": "link",
+      "pin_style": "label_hover",
+      "target": "dji_20261020115200_0011_d",
+      "link_icon": "aerial"
+    },
+    {
+      "yaw": 3.541894329643985,
+      "pitch": 0.13324482357799391,
+      "title": "Drone Stop 12",
+      "text": "",
+      "link": "",
+      "category": "link",
+      "pin_style": "label_hover",
+      "target": "dji_20261020115346_0012_d",
+      "link_icon": "aerial"
+    }
+  ],
+  "hotspots_2": [],
+  "levels_1": [],
+  "levels_2": [],
+  "pin_style": "dot",
+  "basemap_type": "xyz_tile",
+  "basemap_url": "https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}",
+  "mobile_1": 5000,
+  "mobile_2": 0,
+  "heading_offset": 33.3,
+  "overlays": [
+    {
+      "label": "Thurston County Parcel Data",
+      "url": "https://tconline.co.thurston.wa.us/server/rest/services/Common_Layers/Parcels/FeatureServer/4",
+      "opacity": 0.5,
+      "default_on": true,
+      "type": "feature",
+      "popup": true
+    },
+    {
+      "label": "Ortho (4/3/2025)",
+      "url": "https://tiles.arcgis.com/tiles/buuvDFFARQiOEbVZ/arcgis/rest/services/DRR_Ortho_20250403_pix4d/MapServer/tile/{z}/{y}/{x}",
+      "opacity": 1.0,
+      "default_on": true,
+      "type": "tile"
+    }
+  ],
+  "platform": "aerial",
+  "alt_checked": true,
+  "alt": 152.6,
+  "rel_alt": 45.12
+}

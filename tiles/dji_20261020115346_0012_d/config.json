@@ -1,0 +1,67 @@
+{
+  "mode": "single",
+  "format": "raw",
+  "yaw_1": -2.171357232706333,
+  "pitch_1": 0.4818722541508045,
+  "yaw_2": 0.0,
+  "pitch_2": 0.0,
+  "lat": 46.84447333333333,
+  "lng": -122.59937819444444,
+  "label_1": "DJI_20261020115346_0012_D (2026/10/20)",
+  "label_2": "",
+  "autorotate": false,
+  "hotspots_1": [
+    {
+      "yaw": 2.995420840808028,
+      "pitch": -0.3187476689023787,
+      "title": "Overview 1",
+      "text": "",
+      "link": "",
+      "category": "link",
+      "pin_style": "label_hover",
+      "target": "dji_20261020132304_0003_d",
+      "link_icon": "overview"
+    },
+    {
+      "yaw": 3.464634880330917,
+      "pitch": -0.14020289442032005,
+      "title": "Overview 2",
+      "text": "",
+      "link": "",
+      "category": "link",
+      "pin_style": "label_hover",
+      "target": "dji_20261020132122_0001_d",
+      "link_icon": "overview"
+    }
+  ],
+  "hotspots_2": [],
+  "levels_1": [],
+  "levels_2": [],
+  "pin_style": "dot",
+  "basemap_type": "xyz_tile",
+  "basemap_url": "https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}",
+  "mobile_1": 5000,
+  "mobile_2": 0,
+  "heading_offset": 247.6,
+  "overlays": [
+    {
+      "label": "Thurston County Parcel Data",
+      "url": "https://tconline.co.thurston.wa.us/server/rest/services/Common_Layers/Parcels/FeatureServer/4",
+      "opacity": 0.5,
+      "default_on": true,
+      "type": "feature",
+      "popup": true
+    },
+    {
+      "label": "Ortho (4/3/2025)",
+      "url": "https://tiles.arcgis.com/tiles/buuvDFFARQiOEbVZ/arcgis/rest/services/DRR_Ortho_20250403_pix4d/MapServer/tile/{z}/{y}/{x}",
+      "opacity": 1.0,
+      "default_on": true,
+      "type": "tile"
+    }
+  ],
+  "platform": "aerial",
+  "alt_checked": true,
+  "alt": 123.2,
+  "rel_alt": 15.72
+}

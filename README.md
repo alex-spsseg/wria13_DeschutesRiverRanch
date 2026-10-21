@@ -6,4 +6,4 @@ Live site: [All tours](https://alex-spsseg.github.io/wria13_DeschutesRiverRanch/
 
 ## Tours
 
-- [Site Visit (24.3cfs)](https://alex-spsseg.github.io/wria13_DeschutesRiverRanch/index.html?tour=20261014) (visited 2026-10-14, 6 stops)
+- [Site Visit (24.3cfs)](https://alex-spsseg.github.io/wria13_DeschutesRiverRanch/index.html?tour=20261014) (visited 2026-10-14, 20 stops)

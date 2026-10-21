@@ -2,11 +2,58 @@
   "name": "Site Visit (24.3cfs)",
   "sites": [
     {
+      "site_id": "dji_20261020132304_0003_d",
+      "display_name": "Overview 1",
+      "lat": 46.84614125,
+      "lng": -122.59528313888889,
+      "platform": "aerial",
+      "overview": true,
+      "alt": 242.82,
+      "rel_alt": 135.34
+    },
+    {
+      "site_id": "dji_20261020132122_0001_d",
+      "display_name": "Overview 2",
+      "lat": 46.84499075,
+      "lng": -122.58824444444444,
+      "platform": "aerial",
+      "overview": true,
+      "alt": 242.98,
+      "rel_alt": 135.49
+    },
+    {
+      "site_id": "dji_20261020114349_0006_d",
+      "display_name": "Drone Stop 6",
+      "lat": 46.84722102777778,
+      "lng": -122.58685508333333,
+      "platform": "aerial",
+      "alt": 138.39,
+      "rel_alt": 30.91
+    },
+    {
+      "site_id": "dji_20261020113648_0001_d",
+      "display_name": "Drone Stop 1",
+      "lat": 46.845568444444446,
+      "lng": -122.5969833611111,
+      "platform": "aerial",
+      "alt": 152.6,
+      "rel_alt": 45.12
+    },
+    {
       "site_id": "img_20261014_110835_00_091",
       "display_name": "BDA Pond",
       "lat": 46.8472264299956,
       "lng": -122.58694990997942,
       "alt": 118.0
+    },
+    {
+      "site_id": "dji_20261020114521_0007_d",
+      "display_name": "Drone Stop 7",
+      "lat": 46.847922555555556,
+      "lng": -122.58443438888888,
+      "platform": "aerial",
+      "alt": 159.24,
+      "rel_alt": 51.76
     },
     {
       "site_id": "img_20261014_112047_00_093",
@@ -23,11 +70,29 @@
       "alt": 105.67
     },
     {
+      "site_id": "dji_20261020114054_0004_d",
+      "display_name": "Drone Stop 4",
+      "lat": 46.84682491666667,
+      "lng": -122.59343572222221,
+      "platform": "aerial",
+      "alt": 137.89,
+      "rel_alt": 30.4
+    },
+    {
       "site_id": "img_20261014_120619_00_095",
       "display_name": "Lower Pond",
       "lat": 46.846588030059046,
       "lng": -122.59393841007477,
       "alt": 105.69
+    },
+    {
+      "site_id": "dji_20261020113814_0002_d",
+      "display_name": "Drone Stop 2",
+      "lat": 46.847050361111116,
+      "lng": -122.59440122222222,
+      "platform": "aerial",
+      "alt": 135.27,
+      "rel_alt": 27.79
     },
     {
       "site_id": "img_20261014_121754_00_096",
@@ -42,6 +107,69 @@
       "lat": 46.84700171001352,
       "lng": -122.59442389006342,
       "alt": 115.33
+    },
+    {
+      "site_id": "dji_20261020113924_0003_d",
+      "display_name": "Drone Stop 3",
+      "lat": 46.84836505555556,
+      "lng": -122.59414683333333,
+      "platform": "aerial",
+      "alt": 137.59,
+      "rel_alt": 30.11
+    },
+    {
+      "site_id": "dji_20261020114229_0005_d",
+      "display_name": "Drone Stop 5",
+      "lat": 46.84699772222223,
+      "lng": -122.59061444444444,
+      "platform": "aerial",
+      "alt": 137.98,
+      "rel_alt": 30.5
+    },
+    {
+      "site_id": "dji_20261020114745_0008_d",
+      "display_name": "Drone Stop 8",
+      "lat": 46.84161508333334,
+      "lng": -122.5833721111111,
+      "platform": "aerial",
+      "alt": 129.94,
+      "rel_alt": 22.45
+    },
+    {
+      "site_id": "dji_20261020114909_0009_d",
+      "display_name": "Drone Stop 9",
+      "lat": 46.841078,
+      "lng": -122.58583522222222,
+      "platform": "aerial",
+      "alt": 128.77,
+      "rel_alt": 21.29
+    },
+    {
+      "site_id": "dji_20261020115040_0010_d",
+      "display_name": "Drone Stop 10",
+      "lat": 46.84301691666667,
+      "lng": -122.5909818611111,
+      "platform": "aerial",
+      "alt": 136.04,
+      "rel_alt": 28.56
+    },
+    {
+      "site_id": "dji_20261020115200_0011_d",
+      "display_name": "Drone Stop 11",
+      "lat": 46.844109055555556,
+      "lng": -122.59448947222222,
+      "platform": "aerial",
+      "alt": 134.72,
+      "rel_alt": 27.24
+    },
+    {
+      "site_id": "dji_20261020115346_0012_d",
+      "display_name": "Drone Stop 12",
+      "lat": 46.84447333333333,
+      "lng": -122.59937819444444,
+      "platform": "aerial",
+      "alt": 123.2,
+      "rel_alt": 15.72
     }
   ],
   "basemap_type": "xyz_tile",

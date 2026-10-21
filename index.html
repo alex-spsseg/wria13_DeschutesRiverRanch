@@ -408,6 +408,9 @@
       width: 20px; height: 20px; border-radius: 50%; background: #b366ff; color: #fff;
       border: 2px solid #fff; font-size: 12px; line-height: 1; font-weight: 700;
     }
+    /* Same icons as the link pins on the pano (drawn, not text glyphs, so phones never swap in emoji). */
+    .hp-chip .hp-legend-dot svg { width: 12px; height: 12px; stroke: none; fill: #fff; }
+    .hp-chip .hp-legend-dot svg.hp-ico-stroke { fill: none; stroke: #fff; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
     @media (prefers-reduced-motion: reduce) {
       #info-overlay.visible, #info-overlay.visible #info-panel, #info-body.swap { animation: none; }
       .hp-pan, .hp-grow, .hp-layer-a, .hp-stepper, .hp-pulse, .hp-spin { animation: none; }
@@ -797,7 +800,7 @@
 </head>
 <body>
 
-  <div id="build-timestamp">Built 2026-10-21 09:29:31</div>
+  <div id="build-timestamp">Built 2026-10-21 10:04:38</div>
 
   <div id="status-banner"></div>
 
@@ -1774,9 +1777,9 @@
             title: 'What the pins mean',
             icon: STEP_ICONS.look,
             stage: '<div class="hp-chips">' +
-              '<span class="hp-chip"><span class="hp-legend-dot">&#8599;</span>Ground</span>' +
-              '<span class="hp-chip"><span class="hp-legend-dot">&#9992;</span>Aerial</span>' +
-              '<span class="hp-chip"><span class="hp-legend-dot">&#8962;</span>Overview</span>' +
+              '<span class="hp-chip"><span class="hp-legend-dot"><svg class="hp-ico-stroke" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span>Ground</span>' +
+              '<span class="hp-chip"><span class="hp-legend-dot"><svg viewBox="0 0 24 24"><path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg></span>Aerial</span>' +
+              '<span class="hp-chip"><span class="hp-legend-dot"><svg viewBox="0 0 24 24"><path d="M12 3L2 12h3v8h5v-6h4v6h5v-8h3L12 3z"/></svg></span>Overview</span>' +
               '</div>',
             body:
               '<p>Purple pins jump to another stop. The symbol shows what kind of photo you will land on: <b>Ground</b> is taken on foot, <b>Aerial</b> is a drone photo, and <b>Overview</b> is also a drone photo, taken from higher up to cover a larger part of the site.</p>' +
@@ -3193,10 +3196,13 @@
       // have it showing, just keep the selected stop in view for
       // someone who does.
       var activeMarker = tourMarkersBySite[activeTourSiteId];
+      // Tracked whether or not the map panel is open. On phones the panel starts
+      // closed, so counting the first stop only while it was open made the first
+      // stop picked after opening the map count as the "first stop" and skip the zoom.
+      var firstStop = lastFollowedSiteId === null;
+      var changed = activeTourSiteId !== lastFollowedSiteId;
+      lastFollowedSiteId = activeTourSiteId;
       if (siteMap && activeMarker && siteMapPanel.style.display !== 'none') {
-        var firstStop = lastFollowedSiteId === null;
-        var changed = activeTourSiteId !== lastFollowedSiteId;
-        lastFollowedSiteId = activeTourSiteId;
         // The first stop shown keeps the whole site view for orientation; after
         // that, picking a stop zooms the map in to it (never zooms back out).
         if (changed && !firstStop && autoZoomStops) zoomMapToStop(activeMarker.getLatLng());

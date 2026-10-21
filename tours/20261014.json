@@ -176,10 +176,18 @@
   "basemap_url": "https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}",
   "overlays": [
     {
+      "label": "New Beaver Dam Extent",
+      "url": "https://services7.arcgis.com/buuvDFFARQiOEbVZ/arcgis/rest/services/20261020_NewBeaverDamOnSpringCreek_extent/FeatureServer/0",
+      "opacity": 0.25,
+      "default_on": true,
+      "type": "feature",
+      "popup": true
+    },
+    {
       "label": "Thurston County Parcel Data",
       "url": "https://tconline.co.thurston.wa.us/server/rest/services/Common_Layers/Parcels/FeatureServer/4",
       "opacity": 0.5,
-      "default_on": true,
+      "default_on": false,
       "type": "feature",
       "popup": true
     },

@@ -23,21 +23,12 @@
     },
     {
       "site_id": "dji_20261020114349_0006_d",
-      "display_name": "Drone Stop 6",
+      "display_name": "BDA Pond",
       "lat": 46.84722102777778,
       "lng": -122.58685508333333,
       "platform": "aerial",
       "alt": 138.39,
       "rel_alt": 30.91
-    },
-    {
-      "site_id": "dji_20261020113648_0001_d",
-      "display_name": "Drone Stop 1",
-      "lat": 46.845568444444446,
-      "lng": -122.5969833611111,
-      "platform": "aerial",
-      "alt": 152.6,
-      "rel_alt": 45.12
     },
     {
       "site_id": "img_20261014_110835_00_091",
@@ -48,7 +39,7 @@
     },
     {
       "site_id": "dji_20261020114521_0007_d",
-      "display_name": "Drone Stop 7",
+      "display_name": "Upper Beaver Pond",
       "lat": 46.847922555555556,
       "lng": -122.58443438888888,
       "platform": "aerial",
@@ -63,6 +54,15 @@
       "alt": 105.56
     },
     {
+      "site_id": "dji_20261020113648_0001_d",
+      "display_name": "Deschutes Confluence",
+      "lat": 46.845568444444446,
+      "lng": -122.5969833611111,
+      "platform": "aerial",
+      "alt": 152.6,
+      "rel_alt": 45.12
+    },
+    {
       "site_id": "img_20261014_115446_00_094",
       "display_name": "Deschutes Confluence",
       "lat": 46.845643249905194,
@@ -71,7 +71,7 @@
     },
     {
       "site_id": "dji_20261020114054_0004_d",
-      "display_name": "Drone Stop 4",
+      "display_name": "Lower Pond",
       "lat": 46.84682491666667,
       "lng": -122.59343572222221,
       "platform": "aerial",
@@ -87,7 +87,7 @@
     },
     {
       "site_id": "dji_20261020113814_0002_d",
-      "display_name": "Drone Stop 2",
+      "display_name": "Spring Creek",
       "lat": 46.847050361111116,
       "lng": -122.59440122222222,
       "platform": "aerial",
@@ -110,7 +110,7 @@
     },
     {
       "site_id": "dji_20261020113924_0003_d",
-      "display_name": "Drone Stop 3",
+      "display_name": "Upper Spring Creek",
       "lat": 46.84836505555556,
       "lng": -122.59414683333333,
       "platform": "aerial",
@@ -128,7 +128,7 @@
     },
     {
       "site_id": "dji_20261020114745_0008_d",
-      "display_name": "Drone Stop 8",
+      "display_name": "Deschutes Mainstem 1",
       "lat": 46.84161508333334,
       "lng": -122.5833721111111,
       "platform": "aerial",
@@ -137,7 +137,7 @@
     },
     {
       "site_id": "dji_20261020114909_0009_d",
-      "display_name": "Drone Stop 9",
+      "display_name": "Deschutes Mainstem 2",
       "lat": 46.841078,
       "lng": -122.58583522222222,
       "platform": "aerial",
@@ -146,7 +146,7 @@
     },
     {
       "site_id": "dji_20261020115040_0010_d",
-      "display_name": "Drone Stop 10",
+      "display_name": "Riparian Growth along Deschutes",
       "lat": 46.84301691666667,
       "lng": -122.5909818611111,
       "platform": "aerial",
@@ -155,7 +155,7 @@
     },
     {
       "site_id": "dji_20261020115200_0011_d",
-      "display_name": "Drone Stop 11",
+      "display_name": "Deschutes Mainstem 3",
       "lat": 46.844109055555556,
       "lng": -122.59448947222222,
       "platform": "aerial",
@@ -164,7 +164,7 @@
     },
     {
       "site_id": "dji_20261020115346_0012_d",
-      "display_name": "Drone Stop 12",
+      "display_name": "Deschutes Mainstem 4",
       "lat": 46.84447333333333,
       "lng": -122.59937819444444,
       "platform": "aerial",
@@ -182,6 +182,13 @@
       "default_on": true,
       "type": "feature",
       "popup": true
+    },
+    {
+      "label": "Ortho (10/20/2026)",
+      "url": "https://tiles.arcgis.com/tiles/buuvDFFARQiOEbVZ/arcgis/rest/services/DRR_20261020_ortho_24cfs/MapServer/tile/{z}/{y}/{x}",
+      "opacity": 1.0,
+      "default_on": true,
+      "type": "tile"
     },
     {
       "label": "Ortho (4/3/2025)",

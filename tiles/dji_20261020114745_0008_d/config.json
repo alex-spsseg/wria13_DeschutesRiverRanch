@@ -36,12 +36,45 @@
     {
       "yaw": 5.859415213730834,
       "pitch": 0.005943474050765303,
-      "title": "Drone Stop 9",
+      "title": "Deschutes Mainstem 2",
       "text": "",
       "link": "",
       "category": "link",
       "pin_style": "label_hover",
       "target": "dji_20261020114909_0009_d",
+      "link_icon": "aerial"
+    },
+    {
+      "yaw": 1.0537919109701672,
+      "pitch": -0.012461186428041187,
+      "title": "BDA Pond",
+      "text": "",
+      "link": "",
+      "category": "link",
+      "pin_style": "label_hover",
+      "target": "dji_20261020114349_0006_d",
+      "link_icon": "aerial"
+    },
+    {
+      "yaw": 1.3409242859920676,
+      "pitch": -0.04143121783168974,
+      "title": "Upper Beaver Pond",
+      "text": "",
+      "link": "",
+      "category": "link",
+      "pin_style": "label_hover",
+      "target": "dji_20261020114521_0007_d",
+      "link_icon": "aerial"
+    },
+    {
+      "yaw": 0.14793225084579179,
+      "pitch": -0.01016481268491159,
+      "title": "Riparian Growth along Deschutes",
+      "text": "",
+      "link": "",
+      "category": "link",
+      "pin_style": "label_hover",
+      "target": "dji_20261020115040_0010_d",
       "link_icon": "aerial"
     }
   ],

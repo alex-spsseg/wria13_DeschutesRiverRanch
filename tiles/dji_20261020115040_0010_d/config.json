@@ -32,6 +32,61 @@
       "pin_style": "label_hover",
       "target": "dji_20261020132304_0003_d",
       "link_icon": "overview"
+    },
+    {
+      "yaw": 6.211224356582349,
+      "pitch": 0.004498194213722946,
+      "title": "Deschutes Mainstem 3",
+      "text": "",
+      "link": "",
+      "category": "link",
+      "pin_style": "label_hover",
+      "target": "dji_20261020115200_0011_d",
+      "link_icon": "aerial"
+    },
+    {
+      "yaw": 0.6752467401091451,
+      "pitch": -0.035170987686605315,
+      "title": "Lower Pond",
+      "text": "",
+      "link": "",
+      "category": "link",
+      "pin_style": "label_hover",
+      "target": "dji_20261020114054_0004_d",
+      "link_icon": "aerial"
+    },
+    {
+      "yaw": 1.1385470503447586,
+      "pitch": -0.026316702358531785,
+      "title": "Drone Stop 5",
+      "text": "",
+      "link": "",
+      "category": "link",
+      "pin_style": "label_hover",
+      "target": "dji_20261020114229_0005_d",
+      "link_icon": "aerial"
+    },
+    {
+      "yaw": 3.145831351346761,
+      "pitch": 0.016248420248455298,
+      "title": "Deschutes Mainstem 2",
+      "text": "",
+      "link": "",
+      "category": "link",
+      "pin_style": "label_hover",
+      "target": "dji_20261020114909_0009_d",
+      "link_icon": "aerial"
+    },
+    {
+      "yaw": 0.5827288672967974,
+      "pitch": 0.04135067429420225,
+      "title": "Lower Pond",
+      "text": "",
+      "link": "",
+      "category": "link",
+      "pin_style": "label_hover",
+      "target": "img_20261014_120619_00_095",
+      "link_icon": "ground"
     }
   ],
   "hotspots_2": [],

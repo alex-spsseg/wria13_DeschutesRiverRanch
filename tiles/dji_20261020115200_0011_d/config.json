@@ -32,6 +32,105 @@
       "pin_style": "label_hover",
       "target": "dji_20261020132122_0001_d",
       "link_icon": "overview"
+    },
+    {
+      "yaw": 6.072873740734813,
+      "pitch": -0.07142667876385202,
+      "title": "Deschutes Confluence",
+      "text": "",
+      "link": "",
+      "category": "link",
+      "pin_style": "label_hover",
+      "target": "dji_20261020113648_0001_d",
+      "link_icon": "aerial"
+    },
+    {
+      "yaw": 6.108881221737378,
+      "pitch": 0.11465424666795461,
+      "title": "Deschutes Confluence",
+      "text": "",
+      "link": "",
+      "category": "link",
+      "pin_style": "label_hover",
+      "target": "img_20261014_115446_00_094",
+      "link_icon": "ground"
+    },
+    {
+      "yaw": 0.9121459902983026,
+      "pitch": -0.010134086849865708,
+      "title": "Lower Pond",
+      "text": "",
+      "link": "",
+      "category": "link",
+      "pin_style": "label_hover",
+      "target": "dji_20261020114054_0004_d",
+      "link_icon": "aerial"
+    },
+    {
+      "yaw": 0.8074849055305684,
+      "pitch": 0.0810543324012798,
+      "title": "Lower Pond",
+      "text": "",
+      "link": "",
+      "category": "link",
+      "pin_style": "label_hover",
+      "target": "img_20261014_120619_00_095",
+      "link_icon": "ground"
+    },
+    {
+      "yaw": 0.6732712270578439,
+      "pitch": -0.001679412984484407,
+      "title": "Spring Creek",
+      "text": "",
+      "link": "",
+      "category": "link",
+      "pin_style": "label_hover",
+      "target": "dji_20261020113814_0002_d",
+      "link_icon": "aerial"
+    },
+    {
+      "yaw": 0.6129736505149737,
+      "pitch": 0.050135090568311114,
+      "title": "Spring Creek Site (Now Flooded!)",
+      "text": "",
+      "link": "",
+      "category": "link",
+      "pin_style": "label_hover",
+      "target": "img_20261014_121754_00_096",
+      "link_icon": "ground"
+    },
+    {
+      "yaw": 0.6682583620650366,
+      "pitch": 0.060135632944677976,
+      "title": "New Beaver Dam on Spring Creek",
+      "text": "",
+      "link": "",
+      "category": "link",
+      "pin_style": "label_hover",
+      "target": "img_20261014_123725_00_097",
+      "link_icon": "ground"
+    },
+    {
+      "yaw": 2.650708023669382,
+      "pitch": -0.004498269961928272,
+      "title": "Riparian Growth along Deschutes",
+      "text": "",
+      "link": "",
+      "category": "link",
+      "pin_style": "label_hover",
+      "target": "dji_20261020115040_0010_d",
+      "link_icon": "aerial"
+    },
+    {
+      "yaw": 5.47368641035444,
+      "pitch": 0.03075657498835599,
+      "title": "Deschutes Mainstem 4",
+      "text": "",
+      "link": "",
+      "category": "link",
+      "pin_style": "label_hover",
+      "target": "dji_20261020115346_0012_d",
+      "link_icon": "aerial"
     }
   ],
   "hotspots_2": [],

@@ -32,6 +32,28 @@
       "pin_style": "label_hover",
       "target": "dji_20261020132304_0003_d",
       "link_icon": "overview"
+    },
+    {
+      "yaw": 0.8747235108861482,
+      "pitch": -0.005943420118431893,
+      "title": "Deschutes Mainstem 1",
+      "text": "",
+      "link": "",
+      "category": "link",
+      "pin_style": "label_hover",
+      "target": "dji_20261020114745_0008_d",
+      "link_icon": "aerial"
+    },
+    {
+      "yaw": 4.828394275562831,
+      "pitch": -0.016247970418389854,
+      "title": "Riparian Growth along Deschutes",
+      "text": "",
+      "link": "",
+      "category": "link",
+      "pin_style": "label_hover",
+      "target": "dji_20261020115040_0010_d",
+      "link_icon": "aerial"
     }
   ],
   "hotspots_2": [],

@@ -32,6 +32,39 @@
       "pin_style": "label_hover",
       "target": "dji_20261020132122_0001_d",
       "link_icon": "overview"
+    },
+    {
+      "yaw": 2.943215904503136,
+      "pitch": -0.13324296851901646,
+      "title": "Deschutes Confluence",
+      "text": "",
+      "link": "",
+      "category": "link",
+      "pin_style": "label_hover",
+      "target": "dji_20261020113648_0001_d",
+      "link_icon": "aerial"
+    },
+    {
+      "yaw": 2.9231357242309146,
+      "pitch": 0.0768903121317835,
+      "title": "Deschutes Confluence",
+      "text": "",
+      "link": "",
+      "category": "link",
+      "pin_style": "label_hover",
+      "target": "img_20261014_115446_00_094",
+      "link_icon": "ground"
+    },
+    {
+      "yaw": 3.641028451891259,
+      "pitch": -0.030756780970664307,
+      "title": "Deschutes Mainstem 3",
+      "text": "",
+      "link": "",
+      "category": "link",
+      "pin_style": "label_hover",
+      "target": "dji_20261020115200_0011_d",
+      "link_icon": "aerial"
     }
   ],
   "hotspots_2": [],

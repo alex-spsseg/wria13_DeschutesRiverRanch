@@ -1,8 +1,8 @@
 {
   "mode": "single",
   "format": "raw",
-  "yaw_1": 0.0,
-  "pitch_1": 0.0,
+  "yaw_1": -0.6441732898328105,
+  "pitch_1": 0.6097351453911665,
   "yaw_2": 0.0,
   "pitch_2": 0.0,
   "lat": 46.84682491666667,
@@ -102,7 +102,7 @@
     {
       "yaw": 5.524403871973232,
       "pitch": -0.048322741437314735,
-      "title": "Drone Stop 1",
+      "title": "Deschutes Confluence",
       "text": "",
       "link": "",
       "category": "link",
@@ -113,7 +113,7 @@
     {
       "yaw": 0.04800074492981981,
       "pitch": 0.03371680466727244,
-      "title": "Drone Stop 2",
+      "title": "Spring Creek",
       "text": "",
       "link": "",
       "category": "link",
@@ -124,7 +124,7 @@
     {
       "yaw": 0.983924784661851,
       "pitch": 0.0016685747269653804,
-      "title": "Drone Stop 3",
+      "title": "Upper Spring Creek",
       "text": "",
       "link": "",
       "category": "link",
@@ -146,7 +146,7 @@
     {
       "yaw": 4.016239293429419,
       "pitch": 0.003993484917402795,
-      "title": "Drone Stop 10",
+      "title": "Riparian Growth along Deschutes",
       "text": "",
       "link": "",
       "category": "link",
@@ -157,7 +157,7 @@
     {
       "yaw": 4.690797237611272,
       "pitch": 0.010134120556257556,
-      "title": "Drone Stop 11",
+      "title": "Deschutes Mainstem 3",
       "text": "",
       "link": "",
       "category": "link",

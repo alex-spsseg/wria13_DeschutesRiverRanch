@@ -1,8 +1,8 @@
 {
   "mode": "single",
   "format": "raw",
-  "yaw_1": 0.0,
-  "pitch_1": 0.0,
+  "yaw_1": -2.7254631860466847,
+  "pitch_1": 0.31727900967426237,
   "yaw_2": 0.0,
   "pitch_2": 0.0,
   "lat": 46.84836505555556,
@@ -36,7 +36,7 @@
     {
       "yaw": -2.5432850730200354,
       "pitch": 0.048424911085014344,
-      "title": "Deschutes Confluence",
+      "title": "Deschutes Confluence \u00b7 369 m",
       "text": "",
       "link": "",
       "category": "link",
@@ -47,7 +47,7 @@
     {
       "yaw": 3.085287447360111,
       "pitch": 0.14287604985222657,
-      "title": "Lower Pond",
+      "title": "Lower Pond \u00b7 198 m",
       "text": "",
       "link": "",
       "category": "link",
@@ -58,7 +58,7 @@
     {
       "yaw": -2.823604881954024,
       "pitch": 0.20120594458149554,
-      "title": "Spring Creek Site (Now Flooded!)",
+      "title": "Spring Creek Site \u00b7 143 m",
       "text": "",
       "link": "",
       "category": "link",
@@ -69,7 +69,7 @@
     {
       "yaw": -3.0037966533429508,
       "pitch": 0.16471507661045415,
-      "title": "New Beaver Dam on Spring Creek",
+      "title": "Spring Creek Beaver Dam Location \u00b7 153 m",
       "text": "",
       "link": "",
       "category": "link",
@@ -80,7 +80,7 @@
     {
       "yaw": 3.751594375982762,
       "pitch": -0.03959496600009788,
-      "title": "Deschutes Confluence",
+      "title": "Deschutes Confluence \u00b7 378 m",
       "text": "",
       "link": "",
       "category": "link",
@@ -91,7 +91,7 @@
     {
       "yaw": 3.2766603886639074,
       "pitch": 0.01571390526253268,
-      "title": "Spring Creek",
+      "title": "Spring Creek \u00b7 147 m",
       "text": "",
       "link": "",
       "category": "link",
@@ -102,7 +102,7 @@
     {
       "yaw": 2.8392007250805977,
       "pitch": -0.0016685790652788313,
-      "title": "Lower Pond",
+      "title": "Lower Pond \u00b7 180 m",
       "text": "",
       "link": "",
       "category": "link",
@@ -113,7 +113,7 @@
     {
       "yaw": 2.089280420017516,
       "pitch": -0.0012620313622391478,
-      "title": "Drone Stop 5",
+      "title": "Drone Stop 5 \u00b7 309 m",
       "text": "",
       "link": "",
       "category": "link",
@@ -124,7 +124,7 @@
     {
       "yaw": 3.2000935757918207,
       "pitch": 0.006048454814859309,
-      "title": "Deschutes Mainstem 3",
+      "title": "Deschutes Mainstem 3 \u00b7 474 m",
       "text": "",
       "link": "",
       "category": "link",

@@ -96,14 +96,14 @@
     },
     {
       "site_id": "img_20261014_121754_00_096",
-      "display_name": "Spring Creek Site (Now Flooded!)",
+      "display_name": "Spring Creek Site",
       "lat": 46.847137460040685,
       "lng": -122.59470149990132,
       "alt": 106.09
     },
     {
       "site_id": "img_20261014_123725_00_097",
-      "display_name": "New Beaver Dam on Spring Creek",
+      "display_name": "Spring Creek Beaver Dam Location",
       "lat": 46.84700171001352,
       "lng": -122.59442389006342,
       "alt": 115.33
@@ -208,5 +208,17 @@
   ],
   "forward_label": "Forward",
   "backward_label": "Back",
+  "bookmarks": [
+    {
+      "id": "new-beaver-activity",
+      "name": "New Beaver Activity",
+      "stops": [
+        "dji_20261020113814_0002_d",
+        "img_20261014_121754_00_096",
+        "img_20261014_123725_00_097",
+        "dji_20261020113924_0003_d"
+      ]
+    }
+  ],
   "field_visit_date": "2026-10-14"
 }

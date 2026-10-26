@@ -699,12 +699,22 @@
     .image-lightbox-overlay {
       position: fixed; inset: 0; z-index: 6000;
       background: rgba(0, 0, 0, 0.88); cursor: zoom-out;
-      display: flex; align-items: center; justify-content: center;
-      padding: 40px; box-sizing: border-box;
+      overflow: hidden; touch-action: none; box-sizing: border-box;
     }
+    /* Positioned and sized by script so it can be zoomed and panned. */
     .image-lightbox-img {
-      max-width: 100%; max-height: 100%; border-radius: 4px;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+      position: absolute; left: 0; top: 0; max-width: none; max-height: none; transform-origin: 0 0;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6); user-select: none; -webkit-user-drag: none;
+      opacity: 0; transition: opacity 0.15s ease; image-rendering: auto;
+    }
+    .image-lightbox-tools { position: absolute; right: 18px; bottom: 18px; display: flex; gap: 6px; z-index: 1; }
+    .image-lightbox-tools button {
+      min-width: 34px; height: 34px; padding: 0 10px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.3);
+      background: rgba(14, 27, 51, 0.85); color: #ffffff; font-size: 16px; cursor: pointer;
+    }
+    .image-lightbox-tools button:hover { background: #019fc4; }
+    .image-lightbox-hint {
+      position: absolute; left: 18px; bottom: 24px; color: #9fb2cc; font: 12px sans-serif; pointer-events: none;
     }
     .image-lightbox-close {
       position: absolute; top: 16px; right: 22px; color: #ffffff; font-size: 30px;
@@ -975,7 +985,7 @@
 </head>
 <body>
 
-  <div id="build-timestamp">Built 2026-10-26 14:19:35</div>
+  <div id="build-timestamp">Built 2026-10-26 15:16:42</div>
 
   <div id="status-banner"></div>
 
@@ -1115,6 +1125,11 @@
           <input type="number" id="link-all-maxdist" min="1" step="10" placeholder="any" style="width:62px; margin:0 4px; background:#0A1428; color:#fff; border:1px solid #5b3a8c; border-radius:4px; padding:2px 4px;"> m
         </div>
         <label style="display:block; margin-top:6px;"><input type="checkbox" id="link-all-tilt" checked> Tilt pins using altitude</label>
+        <label style="display:block; margin-top:6px;"><input type="checkbox" id="link-all-showdist" checked> Show the distance in the link label</label>
+        <div style="margin-top:6px;">Skip a stop within
+          <input type="number" id="link-all-prune" min="1" step="5" value="15" placeholder="off" style="width:48px; margin:0 4px; background:#0A1428; color:#fff; border:1px solid #5b3a8c; border-radius:4px; padding:2px 4px;"> degrees of a closer link
+          <div style="font-size:11px; color:#b9a6d8; margin-top:2px;">Blank keeps every link.</div>
+        </div>
       </div>
       <button id="link-all-undo-btn" class="edit-tool-btn" type="button" style="display:none;">Undo Link to All</button>
       <button id="edit-hotspots-btn" class="edit-tool-btn" type="button" style="display:none;">Move/Delete Points</button>
@@ -2759,10 +2774,67 @@
       img.src = url;
     }
 
+    // Photo viewer for hotspot images: scroll or pinch to zoom, drag to pan, double click to zoom in or out.
+    // Buttons and keys (+, -, 0 for fit, arrows, Esc) work too. Click the dark background, the x, or press Esc to close.
     function openImageLightbox(images, startIndex) {
       var idx = startIndex || 0;
       var overlay = document.createElement('div');
       overlay.className = 'image-lightbox-overlay';
+      var img = null, nat = { w: 0, h: 0 };
+      var s = 1, fit = 1, x = 0, y = 0;
+      var MAX_ZOOM = 8;                 // up to 8 times the photo's own pixels
+      var pointers = {}, dragged = false, pinchDist = 0;
+      var touchUi = !!(window.matchMedia && window.matchMedia('(pointer: coarse)').matches);
+
+      function vw() { return overlay.clientWidth; }
+      function vh() { return overlay.clientHeight; }
+      function clamp() {
+        var w = nat.w * s, h = nat.h * s;
+        x = w <= vw() ? (vw() - w) / 2 : Math.min(0, Math.max(vw() - w, x));
+        y = h <= vh() ? (vh() - h) / 2 : Math.min(0, Math.max(vh() - h, y));
+      }
+      function apply() {
+        if (!img || !nat.w) return;
+        clamp();
+        img.style.transform = 'translate(' + x + 'px,' + y + 'px) scale(' + s + ')';
+        img.style.cursor = s > fit * 1.01 ? 'grab' : 'zoom-in';
+      }
+      function computeFit() { return Math.min(1, (vw() - 80) / nat.w, (vh() - 80) / nat.h); }
+      function fitView() {
+        if (!nat.w) return;
+        fit = computeFit(); s = fit;
+        x = (vw() - nat.w * s) / 2; y = (vh() - nat.h * s) / 2;
+        apply();
+      }
+      function zoomAt(cx, cy, ns) {
+        if (!nat.w) return;
+        ns = Math.max(fit, Math.min(MAX_ZOOM, ns));
+        x = cx - (cx - x) * (ns / s); y = cy - (cy - y) * (ns / s); s = ns;
+        apply();
+      }
+      function close() {
+        overlay.remove();
+        document.removeEventListener('keydown', onKey);
+        window.removeEventListener('resize', onResize);
+      }
+      function go(delta) {
+        if (images.length < 2) return;
+        idx = (idx + delta + images.length) % images.length;
+        render();
+      }
+      function onKey(e) {
+        if (e.key === 'Escape') { close(); e.stopPropagation(); }
+        else if (e.key === 'ArrowLeft') go(-1);
+        else if (e.key === 'ArrowRight') go(1);
+        else if (e.key === '+' || e.key === '=') zoomAt(vw() / 2, vh() / 2, s * 1.4);
+        else if (e.key === '-' || e.key === '_') zoomAt(vw() / 2, vh() / 2, s / 1.4);
+        else if (e.key === '0') fitView();
+      }
+      function onResize() {
+        if (!nat.w) return;
+        var wasFit = Math.abs(s - fit) < 1e-6;
+        if (wasFit) fitView(); else { fit = computeFit(); s = Math.max(s, fit); apply(); }
+      }
 
       function render() {
         var nav = '';
@@ -2773,25 +2845,85 @@
               '<div class="image-lightbox-counter">' + (idx + 1) + ' / ' + images.length + '</div>';
         }
         overlay.innerHTML =
-            '<img class="image-lightbox-img" src="' + escapeHtml(images[idx]) + '">' +
-            nav +
+            '<img class="image-lightbox-img" draggable="false" alt="">' + nav +
+            '<div class="image-lightbox-tools"><button type="button" data-z="out">\u2212</button>' +
+            '<button type="button" data-z="in">+</button><button type="button" data-z="fit">Fit</button></div>' +
+            '<div class="image-lightbox-hint">' + (touchUi ? 'Pinch to zoom, drag to pan' : 'Scroll to zoom, drag to pan, double click to zoom') + '</div>' +
             '<div class="image-lightbox-close">\u00d7</div>';
-        if (images.length > 1) {
-          overlay.querySelector('.image-lightbox-prev').addEventListener('click', (e) => {
+        img = overlay.querySelector('.image-lightbox-img');
+        nat = { w: 0, h: 0 };
+        img.addEventListener('load', function () {
+          nat = { w: img.naturalWidth, h: img.naturalHeight };
+          img.style.width = nat.w + 'px'; img.style.height = nat.h + 'px';
+          fitView();
+          img.style.opacity = '1';
+        });
+        img.addEventListener('dblclick', function (e) {
+          var r = overlay.getBoundingClientRect();
+          if (s > fit * 1.05) fitView();
+          else zoomAt(e.clientX - r.left, e.clientY - r.top, Math.min(MAX_ZOOM, Math.max(2, fit * 3)));
+        });
+        img.src = images[idx];
+        var prev = overlay.querySelector('.image-lightbox-prev'), next = overlay.querySelector('.image-lightbox-next');
+        if (prev) prev.addEventListener('click', function (e) { e.stopPropagation(); go(-1); });
+        if (next) next.addEventListener('click', function (e) { e.stopPropagation(); go(1); });
+        overlay.querySelector('.image-lightbox-close').addEventListener('click', function (e) { e.stopPropagation(); close(); });
+        overlay.querySelectorAll('.image-lightbox-tools button').forEach(function (b) {
+          b.addEventListener('click', function (e) {
             e.stopPropagation();
-            idx = (idx - 1 + images.length) % images.length;
-            render();
+            var z = b.getAttribute('data-z');
+            if (z === 'in') zoomAt(vw() / 2, vh() / 2, s * 1.5);
+            else if (z === 'out') zoomAt(vw() / 2, vh() / 2, s / 1.5);
+            else fitView();
           });
-          overlay.querySelector('.image-lightbox-next').addEventListener('click', (e) => {
-            e.stopPropagation();
-            idx = (idx + 1) % images.length;
-            render();
-          });
-        }
+        });
       }
+
+      overlay.addEventListener('wheel', function (e) {
+        e.preventDefault();
+        var r = overlay.getBoundingClientRect();
+        zoomAt(e.clientX - r.left, e.clientY - r.top, s * Math.exp(-e.deltaY * (e.ctrlKey ? 0.006 : 0.0018)));
+      }, { passive: false });
+      overlay.addEventListener('pointerdown', function (e) {
+        pointers[e.pointerId] = { x: e.clientX, y: e.clientY, sx: e.clientX, sy: e.clientY };
+        var n = Object.keys(pointers).length;
+        if (n === 1) dragged = false;
+        if (n === 2) {
+          var p = Object.keys(pointers).map(function (k) { return pointers[k]; });
+          pinchDist = Math.hypot(p[0].x - p[1].x, p[0].y - p[1].y);
+          dragged = true;
+        }
+      });
+      overlay.addEventListener('pointermove', function (e) {
+        var prev = pointers[e.pointerId];
+        if (!prev) return;
+        var ids = Object.keys(pointers);
+        if (ids.length === 1) {
+          if (Math.hypot(e.clientX - prev.sx, e.clientY - prev.sy) > 4) dragged = true;
+          if (dragged && s > fit * 1.01) { x += e.clientX - prev.x; y += e.clientY - prev.y; apply(); }
+          prev.x = e.clientX; prev.y = e.clientY;
+        } else if (ids.length === 2) {
+          prev.x = e.clientX; prev.y = e.clientY;
+          var p = ids.map(function (k) { return pointers[k]; });
+          var d = Math.hypot(p[0].x - p[1].x, p[0].y - p[1].y);
+          if (pinchDist > 0 && d > 0) {
+            var r = overlay.getBoundingClientRect();
+            zoomAt((p[0].x + p[1].x) / 2 - r.left, (p[0].y + p[1].y) / 2 - r.top, s * (d / pinchDist));
+          }
+          pinchDist = d;
+        }
+      });
+      function endPointer(e) { delete pointers[e.pointerId]; pinchDist = 0; }
+      overlay.addEventListener('pointerup', endPointer);
+      overlay.addEventListener('pointercancel', endPointer);
+      overlay.addEventListener('click', function (e) {
+        if (e.target === overlay && !dragged) close();
+      });
+
       render();
-      overlay.addEventListener('click', () => overlay.remove());
       document.body.appendChild(overlay);
+      document.addEventListener('keydown', onKey);
+      window.addEventListener('resize', onResize);
     }
 
     function pinStyleClass(spot) {
@@ -2841,13 +2973,22 @@
       return [];
     }
 
+    // Hotspot photos are saved at high quality, so a tooltip's picture is only fetched once the tooltip is opened.
+    function hydrateTipImages(tip) {
+      if (!tip) return;
+      tip.querySelectorAll('img[data-src]').forEach(function (im) {
+        im.src = im.getAttribute('data-src');
+        im.removeAttribute('data-src');
+      });
+    }
+
     function updateHotspotTooltipBody(body, spot) {
       var html = '<strong class="hotspot-tooltip-title">' + escapeHtml(spot.title) + '</strong>';
       var images = spotImages(spot);
       if (images.length) {
         html += '<br><div class="hotspot-tooltip-gallery" data-images=\'' +
             JSON.stringify(images).replace(/'/g, '&#39;') + '\'>' +
-            '<img class="hotspot-tooltip-img" src="' + escapeHtml(images[0]) + '" data-index="0" alt="">';
+            '<img class="hotspot-tooltip-img" data-src="' + escapeHtml(images[0]) + '" data-index="0" alt="">';
         if (images.length > 1) {
           html += '<span class="hotspot-tooltip-img-count">+' + (images.length - 1) + '</span>';
         }
@@ -2928,7 +3069,7 @@
         } else {
           var wasOpen = pin.tip.classList.contains('open');
           document.querySelectorAll('.hotspot-tooltip.open').forEach(t => t.classList.remove('open'));
-          if (!wasOpen) pin.tip.classList.add('open');
+          if (!wasOpen) { hydrateTipImages(pin.tip); pin.tip.classList.add('open'); }
         }
       });
     }
@@ -5000,9 +5141,8 @@
     }
 
     function downscaleImageFile(file, maxDim, quality) {
-      // Resize client-side before upload so a full-res drone photo
-      // doesn't end up bloating a tooltip -- caps the longest edge and
-      // re-encodes as JPEG regardless of source format.
+      // Hotspot photos are meant to be zoomed into, so they keep nearly all of their detail: only photos longer
+      // than maxDim are scaled down, and a photo already within the limit is uploaded untouched.
       return new Promise((resolve, reject) => {
         var reader = new FileReader();
         reader.onerror = () => reject(new Error('read-failed'));
@@ -5011,6 +5151,8 @@
           img.onerror = () => reject(new Error('decode-failed'));
           img.onload = () => {
             var scale = Math.min(1, maxDim / Math.max(img.width, img.height));
+            // Already within the size limit: send the file as it is, with no second round of JPEG compression.
+            if (scale === 1 && /^image\/(jpeg|png|webp)$/.test(file.type || '')) { resolve(reader.result); return; }
             var w = Math.max(1, Math.round(img.width * scale));
             var h = Math.max(1, Math.round(img.height * scale));
             var canvas = document.createElement('canvas');
@@ -5028,7 +5170,7 @@
     function uploadHotspotImage(file) {
       var targetSiteId = tourParam ? activeTourSiteId : siteId;
       if (!targetSiteId) return Promise.reject(new Error('no-active-site'));
-      return downscaleImageFile(file, 1200, 0.82).then(dataUrl => {
+      return downscaleImageFile(file, 4000, 0.92).then(dataUrl => {
         return fetch('/__upload_hotspot_image', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -5342,6 +5484,7 @@
           pin.el.className = 'hotspot-pin hotspot-cat-' + spot.category + pinStyleClass(spot);
           applyLinkHotspotIcon(pin.el, spot);
           updateHotspotTooltipBody(pin.body, spot);
+          if (pin.tip && pin.tip.classList.contains('open')) hydrateTipImages(pin.tip);
           markHotspotsDirty(ctx.slotId);
           close();
           refreshHotspotList();
@@ -5504,12 +5647,19 @@
           if (!want.overview && !want.aerial && !want.ground && !want.float) { flashMsg('Tick at least one type'); return; }
           var maxDist = parseFloat(document.getElementById('link-all-maxdist').value);
           if (!(maxDist > 0)) maxDist = Infinity;
-          var added = 0, noGps = 0, typeSkipped = 0, tooFar = 0;
+          var added = 0, noGps = 0, typeSkipped = 0, tooFar = 0, masked = 0;
           var batch = [];
           var diag = [];
           var tilt = document.getElementById('link-all-tilt').checked;
+          var showDist = document.getElementById('link-all-showdist').checked;
+          var pruneDeg = parseFloat(document.getElementById('link-all-prune').value);
+          if (!(pruneDeg > 0)) pruneDeg = 0;
+          // The name a link shows: the stop's name in the tour with a trailing (date or note) left off, like the
+          // batch tool in the publisher does.
+          var linkName = (st, no) => String(st.display_name || '').replace(/\s*\([^()]*\)\s*$/, '').trim() || ('Stop ' + no);
           var meOpt = tourSiteOptions.find(x => normId(x.site_id) === sid) || {};
-          tourSiteOptions.forEach(st => {
+          var cands = [];
+          tourSiteOptions.forEach((st, stIdx) => {
             var tid = normId(st.site_id);
             if (tid === sid || have[tid]) return;
             if (st.lat == null || st.lng == null) { noGps++; return; }
@@ -5520,8 +5670,22 @@
             var dist = Math.sqrt(dLat * dLat + dLng * dLng);
             if (dist < 0.5) return;
             if (dist > maxDist) { tooFar++; return; }
-            var b = computeBearingJs(me[0], me[1], st.lat, st.lng);
-            var yaw = ((((b - currentHeadingOffset) % 360) + 360) % 360) * Math.PI / 180;
+            cands.push({ st: st, no: stIdx + 1, kind: kind, dist: dist, bearing: computeBearingJs(me[0], me[1], st.lat, st.lng) });
+          });
+          // Mask: nearest first, and a stop whose bearing is within pruneDeg of a closer one already kept is
+          // skipped, so a cluster of stops in one direction gets one link instead of a fan of overlapping pins.
+          cands.sort((x, y) => x.dist - y.dist);
+          if (pruneDeg) {
+            var keptBearings = [];
+            cands = cands.filter(c => {
+              if (keptBearings.some(kb => Math.abs(((c.bearing - kb + 540) % 360) - 180) < pruneDeg)) { masked++; return false; }
+              keptBearings.push(c.bearing);
+              return true;
+            });
+          }
+          cands.forEach(c => {
+            var st = c.st, kind = c.kind, dist = c.dist;
+            var yaw = ((((c.bearing - currentHeadingOffset) % 360) + 360) % 360) * Math.PI / 180;
             // Pitch from altitude: the GPS height difference over the horizontal distance. Both stops need
             // an altitude (all treated as ellipsoid heights), otherwise the pin stays level.
             // Marzipano pitch is positive DOWNWARD, so a target above this stop gets a negative pitch.
@@ -5531,11 +5695,12 @@
               upDeg = Math.max(-80, Math.min(80, Math.atan2(dz, dist) * 180 / Math.PI));
               pitch = -upDeg * Math.PI / 180;
             }
-            diag.push({ target: st.display_name || st.site_id, kind: kind, alt: st.alt, rel_alt: st.rel_alt,
+            var label = linkName(st, c.no) + (showDist ? ' \u00B7 ' + Math.round(dist) + ' m' : '');
+            diag.push({ target: label, kind: kind, alt: st.alt, rel_alt: st.rel_alt,
                         dist_m: Math.round(dist), dz_m: dz == null ? null : Math.round(dz * 10) / 10,
                         degrees_above_horizon: Math.round(upDeg) });
             var spot = {
-              yaw: yaw, pitch: pitch, title: st.display_name || st.site_id, text: '', link: '',
+              yaw: yaw, pitch: pitch, title: label, text: '', link: '',
               category: 'link', pin_style: 'label_hover', target: st.site_id, link_icon: kind,
             };
             pendingSlotHotspots[sid].push(spot);
@@ -5555,7 +5720,7 @@
             linkAllUndoStack.push({ sid: sid, scene: activeTourScene, items: batch, name: (me2 && me2.display_name) || sid });
             updateLinkAllUndoVisibility();
           }
-          flashMsg(added ? ('Added ' + added + ' link' + (added > 1 ? 's' : '') + ', now Save Hotspots')
+          flashMsg(added ? ('Added ' + added + ' link' + (added > 1 ? 's' : '') + (masked ? ' (' + masked + ' masked)' : '') + ', now Save Hotspots')
                          : (tooFar ? 'Nothing within ' + maxDist + ' m' : typeSkipped ? 'Nothing to add for the ticked types' : (noGps ? 'Nothing added (others have no GPS)' : 'Already linked to every stop')));
         });
       }

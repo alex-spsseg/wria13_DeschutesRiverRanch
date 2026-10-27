@@ -218,6 +218,19 @@
         "img_20261014_123725_00_097",
         "dji_20261020113924_0003_d"
       ]
+    },
+    {
+      "id": "deschutes-mainstem-views",
+      "name": "Deschutes Mainstem Views",
+      "stops": [
+        "dji_20261020114745_0008_d",
+        "dji_20261020114909_0009_d",
+        "dji_20261020115200_0011_d",
+        "dji_20261020113648_0001_d",
+        "dji_20261020115346_0012_d"
+      ],
+      "note": "Used to monitor bank sluff and channel migration",
+      "ordered": true
     }
   ],
   "field_visit_date": "2026-10-14"

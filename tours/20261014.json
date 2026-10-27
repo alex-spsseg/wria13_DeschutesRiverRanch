@@ -1,5 +1,5 @@
 {
-  "name": "Site Visit (24.3cfs)",
+  "name": "Deschutes River Ranch Site Visit (24.3cfs)",
   "sites": [
     {
       "site_id": "dji_20261020132304_0003_d",
@@ -233,5 +233,6 @@
       "ordered": true
     }
   ],
+  "intro_note": "Seven years after this wetland was constructed in 2019, beavers have started new work in Spring Creek. Explore drone and ground 360 views from an early fall site visit, and start with the New Beaver Activity bookmark in the stops menu to see it up close.",
   "field_visit_date": "2026-10-14"
 }
